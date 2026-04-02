@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BARUBOLA｜女性求人LP</title>
+    <meta name="description" content="BARUBOLA 新宿・歌舞伎町 女性求人ページ。未経験歓迎、相談だけでもOK。LINEやお電話でお気軽にお問い合わせください。" />
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-soft: #f7f7f7;
+            --text: #111111;
+            --text-sub: #555555;
+            --line: #06c755;
+            --border: #dcdcdc;
+            --border-strong: #bdbdbd;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            --radius: 22px;
+            --max: 1120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                "Hiragino Sans",
+                "Yu Gothic",
+                "Meiryo",
+                sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(var(--max), 92%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 88px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-title .mini {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: .22em;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1.35;
+            font-weight: 800;
+            letter-spacing: .03em;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: var(--text-sub);
+            font-size: 15px;
+        }
+
+        /* ===== Opening ===== */
+        #opening {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 1;
+            visibility: visible;
+            animation: fadeOutOpening 2s ease forwards;
+            animation-delay: 3s;
+        }
+
+        #opening img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            #opening img {
+                object-fit: contain;
+                background: #000;
+            }
+        }
+
+        @keyframes fadeOutOpening {
+            0% {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            99% {
+                opacity: 0;
+                visibility: visible;
+            }
+
+            100% {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(rgba(255, 255, 255, .90), rgba(255, 255, 255, .94)),
+                url("main.jpg") center center / cover no-repeat;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 0, 0, .03), transparent 20%),
+                radial-gradient(circle at 80% 30%, rgba(0, 0, 0, .035), transparent 22%),
+                radial-gradient(circle at 30% 80%, rgba(0, 0, 0, .025), transparent 24%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            width: min(var(--max), 92%);
+            margin: 0 auto;
+            text-align: center;
+            padding: 100px 0 70px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 12px;
+            letter-spacing: .22em;
+            color: #666;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, .92);
+        }
+
+        .brand {
+            font-size: clamp(44px, 9vw, 110px);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: .08em;
+            margin-bottom: 18px;
+            color: #000;
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 4.2vw, 58px);
+            line-height: 1.4;
+            font-weight: 800;
+            letter-spacing: .03em;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            width: min(820px, 100%);
+            margin: 0 auto 28px;
+            color: var(--text-sub);
+            font-size: clamp(15px, 2vw, 19px);
+        }
+
+        .hero-points {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .hero-points span {
+            padding: 10px 16px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .btn-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 230px;
+            padding: 16px 26px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 16px;
+            transition: .2s ease;
+            border: 1px solid #111;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-main {
+            background: #111;
+            color: #fff;
+        }
+
+        .btn-line {
+            background: var(--line);
+            color: #fff;
+            border-color: var(--line);
+        }
+
+        .btn-sub {
+            background: #fff;
+            color: #111;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 15px;
+        }
+
+        .ra-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .ra-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 28px 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .ra-tag {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            background: #111;
+            color: #fff;
+        }
+
+        .ra-box ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .ra-box li {
+            position: relative;
+            padding-left: 22px;
+            color: var(--text-sub);
+        }
+
+        .ra-box li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #111;
+            font-weight: 800;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .info-box,
+        .map-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 28px 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .box-title {
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .info-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        .info-item {
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .info-item strong {
+            color: #111;
+        }
+
+        .info-item a {
+            text-decoration: underline;
+            word-break: break-all;
+        }
+
+        .map-frame {
+            width: 100%;
+            aspect-ratio: 16/12;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-top: 12px;
+            background: #eee;
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .faq {
+            display: grid;
+            gap: 16px;
+        }
+
+        details {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 22px;
+            position: relative;
+            font-size: 17px;
+            font-weight: 800;
+            color: #111;
+            padding-right: 60px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #111;
+            font-weight: 400;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding: 0 22px 20px;
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .cta-box {
+            text-align: center;
+            padding: 42px 24px;
+            border-radius: 30px;
+            background: #fff;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(28px, 4.5vw, 50px);
+            margin-bottom: 12px;
+            line-height: 1.35;
+            font-weight: 800;
+        }
+
+        .cta-box p {
+            color: var(--text-sub);
+            line-height: 1.9;
+            margin-bottom: 24px;
+            font-size: 15px;
+        }
+
+        footer {
+            padding: 34px 0 80px;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            margin-top: 10px;
+        }
+
+        .fixed-contact {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .fixed-contact a {
+            min-width: 76px;
+            height: 76px;
+            padding: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 800;
+            line-height: 1.25;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, .14);
+            border: 1px solid var(--border-strong);
+            background: #fff;
+            color: #111;
+        }
+
+        .fixed-contact a.line {
+            background: var(--line);
+            color: #fff;
+            border-color: var(--line);
+        }
+
+        @media (max-width: 900px) {
+            .section {
+                padding: 68px 0;
+            }
+
+            .cards,
+            .ra-grid,
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-inner {
+                padding-top: 84px;
+            }
+
+            .brand {
+                font-size: clamp(40px, 15vw, 74px);
+            }
+
+            .fixed-contact a {
+                min-width: 68px;
+                height: 68px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="opening">
+        <img src="opening.jpg" alt="BARUBOLA opening image">
+    </div>
+
+    <section class="hero" id="top">
+        <div class="hero-inner">
+            <div class="hero-label">SHINJUKU / KABUKICHO / GIRLS RECRUIT</div>
+
+            <div class="brand">BARUBOLA</div>
+
+            <h1>
+                今よりも「稼げる環境」で<br>
+                一歩踏み出してみませんか？
+            </h1>
+
+            <p>
+                未経験でも大丈夫。相談だけでもOK。<br>
+                不安なことは応募前にLINEやお電話で確認できます。
+            </p>
+
+            <div class="hero-points">
+                <span>未経験歓迎</span>
+                <span>相談だけでもOK</span>
+                <span>無理な案内なし</span>
+                <span>歌舞伎町エリア</span>
+            </div>
+
+            <div class="btn-wrap">
+                <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="btn btn-line">LINEで問い合わせる</a>
+                <a href="tel:0332050011" class="btn btn-main">電話で問い合わせる</a>
+                <a href="#access" class="btn btn-sub">住所・MAPを見る</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <div class="mini">PROBLEM & ANSWER</div>
+                <h2>R&A</h2>
+            </div>
+
+            <div class="ra-grid">
+                <div class="ra-box">
+                    <span class="ra-tag">R / 悩み</span>
+                    <ul>
+                        <li>今の仕事では思うように稼げない</li>
+                        <li>未経験だから不安が大きい</li>
+                        <li>雰囲気が怖そうで踏み出せない</li>
+                        <li>身バレや働き方が心配</li>
+                        <li>まずは相談だけしたい</li>
+                    </ul>
+                </div>
+
+                <div class="ra-box">
+                    <span class="ra-tag">A / 解決</span>
+                    <ul>
+                        <li>未経験の方にもわかりやすく案内</li>
+                        <li>応募前にLINEで質問できる</li>
+                        <li>無理に話を進めることはなし</li>
+                        <li>不安な点は事前に確認可能</li>
+                        <li>相談だけの問い合わせも歓迎</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <div class="mini">POINT</div>
+                <h2>BARUBOLAが選ばれる理由</h2>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>安心して相談できる</h3>
+                    <p>
+                        いきなり応募ではなく、まずは気になることを聞くところから始められます。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>未経験でも大丈夫</h3>
+                    <p>
+                        はじめての方にもわかりやすく案内できるよう、相談しやすい流れを整えています。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>問い合わせしやすい</h3>
+                    <p>
+                        LINEだけでなく、お電話でもご連絡いただけるようにしています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="access">
+        <div class="container">
+            <div class="section-title">
+                <div class="mini">ACCESS & INFO</div>
+                <h2>住所・Googleマップ・連絡先</h2>
+            </div>
+
+            <div class="two-col">
+                <div class="info-box">
+                    <div class="box-title">店舗情報</div>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <strong>店名：</strong>BARUBOLA SHINJUKU
+                        </div>
+                        <div class="info-item">
+                            <strong>住所：</strong>東京都新宿区歌舞伎町1-24-3 浜野産業ビル5階
+                        </div>
+                        <div class="info-item">
+                            <strong>エリア：</strong>新宿・歌舞伎町
+                        </div>
+                        <div class="info-item">
+                            <strong>電話番号：</strong>
+                            <a href="tel:0332050011">03-3205-0011</a>
+                        </div>
+                        <div class="info-item">
+                            <strong>LINE：</strong>
+                            <a href="https://line.me/ti/p/gPNXpPEN3m"
+                                target="_blank">https://line.me/ti/p/gPNXpPEN3m</a>
+                        </div>
+                    </div>
+
+                    <div class="btn-wrap" style="justify-content:flex-start; margin-top:20px;">
+                        <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="btn btn-line">LINEで相談する</a>
+                        <a href="tel:0332050011" class="btn btn-main">電話で問い合わせる</a>
+                    </div>
+                </div>
+
+                <div class="map-box">
+                    <div class="box-title">Googleマップ</div>
+
+                    <div class="map-frame">
+                        <iframe
+                            src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-24-3%20%E6%B5%9C%E9%87%8E%E7%94%A3%E6%A5%AD%E3%83%93%E3%83%AB5%E9%9A%8E&output=embed"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="btn-wrap" style="justify-content:flex-start; margin-top:18px;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-24-3%20%E6%B5%9C%E9%87%8E%E7%94%A3%E6%A5%AD%E3%83%93%E3%83%AB5%E9%9A%8E"
+                            target="_blank" class="btn btn-sub">Googleマップを開く</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <div class="mini">FAQ</div>
+                <h2>よくある質問</h2>
+            </div>
+
+            <div class="faq">
+                <details open>
+                    <summary>未経験でも本当に大丈夫ですか？</summary>
+                    <div class="faq-answer">
+                        大丈夫です。わからないことは最初にLINEやお電話で確認できます。いきなり無理に進める形ではありません。
+                    </div>
+                </details>
+
+                <details>
+                    <summary>まずは相談だけでも大丈夫ですか？</summary>
+                    <div class="faq-answer">
+                        問題ありません。仕事内容や不安な点を整理するための問い合わせでも大丈夫です。
+                    </div>
+                </details>
+
+                <details>
+                    <summary>身バレが心配です。</summary>
+                    <div class="faq-answer">
+                        心配な点は事前に相談できます。応募前にLINEやお電話で聞いておきたいことを確認してください。
+                    </div>
+                </details>
+
+                <details>
+                    <summary>場所はわかりやすいですか？</summary>
+                    <div class="faq-answer">
+                        ページ内に住所とGoogleマップを載せているので、事前に確認しやすい作りにしています。
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>まずはLINEまたはお電話でお問い合わせください</h2>
+                <p>
+                    応募前の相談、質問だけでも大丈夫です。<br>
+                    気になったら、まずは気軽にご連絡ください。
+                </p>
+                <div class="btn-wrap">
+                    <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="btn btn-line">LINEで問い合わせ</a>
+                    <a href="tel:0332050011" class="btn btn-main">電話で問い合わせ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © BARUBOLA SHINJUKU GIRLS RECRUIT
+    </footer>
+
+    <div class="fixed-contact">
+        <a href="tel:0332050011">電話で<br>相談</a>
+        <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="line">LINEで<br>相談</a>
+    </div>
+
+</body>
+
+</html>
