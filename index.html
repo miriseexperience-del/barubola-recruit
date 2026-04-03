@@ -10,13 +10,18 @@
         :root {
             --bg: #ffffff;
             --bg-soft: #f7f7f7;
+            --bg-soft-2: #fafafa;
             --text: #111111;
             --text-sub: #555555;
+            --text-light: #777777;
             --line: #06c755;
+            --line-dark: #00a848;
             --border: #dcdcdc;
             --border-strong: #bdbdbd;
             --shadow: 0 10px 30px rgba(0, 0, 0, .08);
+            --shadow-soft: 0 6px 20px rgba(0, 0, 0, .06);
             --radius: 22px;
+            --radius-sm: 16px;
             --max: 1120px;
         }
 
@@ -50,6 +55,10 @@
         img {
             max-width: 100%;
             display: block;
+        }
+
+        button {
+            font: inherit;
         }
 
         .container {
@@ -256,9 +265,32 @@
             border-color: var(--line);
         }
 
+        .btn-line:hover {
+            background: var(--line-dark);
+            border-color: var(--line-dark);
+        }
+
         .btn-sub {
             background: #fff;
             color: #111;
+        }
+
+        .notice-box {
+            width: min(820px, 100%);
+            margin: 26px auto 0;
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .9);
+            color: var(--text-sub);
+            font-size: 14px;
+            line-height: 1.9;
+            text-align: left;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .notice-box strong {
+            color: var(--text);
         }
 
         .cards {
@@ -380,6 +412,82 @@
             word-break: break-all;
         }
 
+        .manual-contact {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 18px;
+            background: var(--bg-soft-2);
+            border: 1px solid var(--border);
+        }
+
+        .manual-contact h4 {
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .manual-contact p {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.9;
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .contact-chip {
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        .contact-chip strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .contact-chip span,
+        .contact-chip a {
+            font-size: 15px;
+            word-break: break-all;
+        }
+
+        .copy-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .copy-btn {
+            appearance: none;
+            border: 1px solid var(--border-strong);
+            background: #fff;
+            color: #111;
+            padding: 10px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 800;
+            transition: .2s ease;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .copy-status {
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--text-light);
+            min-height: 1.6em;
+        }
+
         .map-frame {
             width: 100%;
             aspect-ratio: 16/12;
@@ -469,6 +577,28 @@
             font-size: 15px;
         }
 
+        .cta-support {
+            width: min(760px, 100%);
+            margin: 26px auto 0;
+            padding: 20px;
+            border-radius: 20px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .cta-support h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .cta-support p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
         footer {
             padding: 34px 0 80px;
             text-align: center;
@@ -540,6 +670,14 @@
                 height: 68px;
                 font-size: 10px;
             }
+
+            .copy-row {
+                flex-direction: column;
+            }
+
+            .copy-btn {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -574,9 +712,15 @@
             </div>
 
             <div class="btn-wrap">
-                <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="btn btn-line">LINEで問い合わせる</a>
+                <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" rel="noopener noreferrer" class="btn btn-line">LINEで問い合わせる</a>
                 <a href="tel:0332050011" class="btn btn-main">電話で問い合わせる</a>
                 <a href="#access" class="btn btn-sub">住所・MAPを見る</a>
+            </div>
+
+            <div class="notice-box">
+                <strong>ご案内：</strong>
+                Xアプリから開いている場合、LINE・電話ボタンが正常に動かないことがあります。<br>
+                その場合は、右上メニューからSafariで開くか、ページ内のLINEリンク・電話番号をコピーしてご連絡ください。
             </div>
         </div>
     </section>
@@ -671,14 +815,46 @@
                         </div>
                         <div class="info-item">
                             <strong>LINE：</strong>
-                            <a href="https://line.me/ti/p/gPNXpPEN3m"
-                                target="_blank">https://line.me/ti/p/gPNXpPEN3m</a>
+                            <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" rel="noopener noreferrer">https://line.me/ti/p/gPNXpPEN3m</a>
                         </div>
                     </div>
 
                     <div class="btn-wrap" style="justify-content:flex-start; margin-top:20px;">
-                        <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="btn btn-line">LINEで相談する</a>
+                        <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" rel="noopener noreferrer" class="btn btn-line">LINEで相談する</a>
                         <a href="tel:0332050011" class="btn btn-main">電話で問い合わせる</a>
+                    </div>
+
+                    <div class="manual-contact">
+                        <h4>ボタンが開かない場合はこちら</h4>
+                        <p>
+                            Xアプリ内ブラウザでは、LINEや電話が正常に起動しないことがあります。<br>
+                            その場合は、下の情報をコピーして手動でご連絡ください。
+                        </p>
+
+                        <div class="contact-links">
+                            <div class="contact-chip">
+                                <strong>電話番号</strong>
+                                <span id="phoneText">03-3205-0011</span>
+                                <div class="copy-row">
+                                    <button class="copy-btn" onclick="copyText('03-3205-0011', 'copyStatus')">電話番号をコピー</button>
+                                </div>
+                            </div>
+
+                            <div class="contact-chip">
+                                <strong>LINEリンク</strong>
+                                <a id="lineUrlText" href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" rel="noopener noreferrer">https://line.me/ti/p/gPNXpPEN3m</a>
+                                <div class="copy-row">
+                                    <button class="copy-btn" onclick="copyText('https://line.me/ti/p/gPNXpPEN3m', 'copyStatus')">LINEリンクをコピー</button>
+                                </div>
+                            </div>
+
+                            <div class="contact-chip">
+                                <strong>開かないときの見方</strong>
+                                <span>右上メニューからSafariで開くと、正常に動く場合があります。</span>
+                            </div>
+                        </div>
+
+                        <div class="copy-status" id="copyStatus"></div>
                     </div>
                 </div>
 
@@ -694,7 +870,22 @@
 
                     <div class="btn-wrap" style="justify-content:flex-start; margin-top:18px;">
                         <a href="https://www.google.com/maps/search/?api=1&query=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%B0%E5%AE%BF%E5%8C%BA%E6%AD%8C%E8%88%9E%E4%BC%8E%E7%94%BA1-24-3%20%E6%B5%9C%E9%87%8E%E7%94%A3%E6%A5%AD%E3%83%93%E3%83%AB5%E9%9A%8E"
-                            target="_blank" class="btn btn-sub">Googleマップを開く</a>
+                            target="_blank" rel="noopener noreferrer" class="btn btn-sub">Googleマップを開く</a>
+                    </div>
+
+                    <div class="manual-contact" style="margin-top:18px;">
+                        <h4>住所をそのまま使いたい場合</h4>
+                        <p>
+                            マップが開かない場合は、下の住所をコピーしてGoogleマップや検索に貼り付けてください。
+                        </p>
+                        <div class="contact-chip" style="margin-top:12px;">
+                            <strong>住所</strong>
+                            <span>東京都新宿区歌舞伎町1-24-3 浜野産業ビル5階</span>
+                            <div class="copy-row">
+                                <button class="copy-btn" onclick="copyText('東京都新宿区歌舞伎町1-24-3 浜野産業ビル5階', 'addressCopyStatus')">住所をコピー</button>
+                            </div>
+                        </div>
+                        <div class="copy-status" id="addressCopyStatus"></div>
                     </div>
                 </div>
             </div>
@@ -731,6 +922,13 @@
                 </details>
 
                 <details>
+                    <summary>Xから開いたらLINEや電話が動かないことはありますか？</summary>
+                    <div class="faq-answer">
+                        あります。その場合は、Safariで開き直すか、ページ内にある電話番号・LINEリンクをコピーしてご利用ください。
+                    </div>
+                </details>
+
+                <details>
                     <summary>場所はわかりやすいですか？</summary>
                     <div class="faq-answer">
                         ページ内に住所とGoogleマップを載せているので、事前に確認しやすい作りにしています。
@@ -748,9 +946,24 @@
                     応募前の相談、質問だけでも大丈夫です。<br>
                     気になったら、まずは気軽にご連絡ください。
                 </p>
+
                 <div class="btn-wrap">
-                    <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="btn btn-line">LINEで問い合わせ</a>
+                    <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" rel="noopener noreferrer" class="btn btn-line">LINEで問い合わせ</a>
                     <a href="tel:0332050011" class="btn btn-main">電話で問い合わせ</a>
+                </div>
+
+                <div class="cta-support">
+                    <h3>うまく開かない場合</h3>
+                    <p>
+                        電話番号：03-3205-0011<br>
+                        LINEリンク：https://line.me/ti/p/gPNXpPEN3m<br>
+                        Xアプリから見ている場合は、Safariで開き直すと改善することがあります。
+                    </p>
+                    <div class="copy-row" style="margin-top:14px;">
+                        <button class="copy-btn" onclick="copyText('03-3205-0011', 'bottomCopyStatus')">電話番号をコピー</button>
+                        <button class="copy-btn" onclick="copyText('https://line.me/ti/p/gPNXpPEN3m', 'bottomCopyStatus')">LINEリンクをコピー</button>
+                    </div>
+                    <div class="copy-status" id="bottomCopyStatus"></div>
                 </div>
             </div>
         </div>
@@ -761,9 +974,50 @@
     </footer>
 
     <div class="fixed-contact">
-        <a href="tel:0332050011">電話で<br>相談</a>
-        <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" class="line">LINEで<br>相談</a>
+        <a href="tel:0332050011" aria-label="電話で相談する">電話で<br>相談</a>
+        <a href="https://line.me/ti/p/gPNXpPEN3m" target="_blank" rel="noopener noreferrer" class="line" aria-label="LINEで相談する">LINEで<br>相談</a>
     </div>
+
+    <script>
+        function copyText(text, statusId) {
+            const status = document.getElementById(statusId);
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function () {
+                    if (status) {
+                        status.textContent = "コピーしました。";
+                    }
+                }).catch(function () {
+                    fallbackCopyText(text, status);
+                });
+            } else {
+                fallbackCopyText(text, status);
+            }
+        }
+
+        function fallbackCopyText(text, statusElement) {
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            tempInput.style.position = "fixed";
+            tempInput.style.left = "-9999px";
+            document.body.appendChild(tempInput);
+            tempInput.focus();
+            tempInput.select();
+
+            try {
+                document.execCommand("copy");
+                if (statusElement) {
+                    statusElement.textContent = "コピーしました。";
+                }
+            } catch (err) {
+                if (statusElement) {
+                    statusElement.textContent = "コピーできない場合は長押しでコピーしてください。";
+                }
+            }
+
+            document.body.removeChild(tempInput);
+        }
+    </script>
 
 </body>
 
